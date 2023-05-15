@@ -77,8 +77,6 @@ public class OscarStatisztika {
         
         Database db = new Database(url, dbName, user, password, kapcsolat);
         
-        //db.statisztika(url, dbName, user, password, kapcsolat);
-        
         db.statisztika(listaNum, stat);
     }
     
