@@ -73,7 +73,11 @@ public class Database {
             while (resultSet.next()) {
                 for (int i = 1; i <= columnsNumber; i++) {
                     String columnValue = resultSet.getString(i);
-                    if (i == 2)
+                    
+                    ResultSetMetaData rs = resultSet.getMetaData();
+      
+                    
+                    if ( "cim".equals(rs.getColumnName(i)))
                         System.out.printf("%-50s",columnValue);
                     else System.out.printf("%-20s",columnValue);
                 }
