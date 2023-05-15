@@ -11,7 +11,11 @@ package oscarstatisztika;
 * Licenc: GNU GPL
 */
 
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
 import java .util.*;
 
 public class OscarStatisztika {
@@ -19,6 +23,12 @@ public class OscarStatisztika {
     
     public static void main(String[] args) throws IOException{
         
+        try {
+            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
+            } catch (UnsupportedEncodingException e) {
+                throw new InternalError("VM does not support mandatory encoding UTF-8");
+        }
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Melyik listát szeretné (1-10):  ");
 
